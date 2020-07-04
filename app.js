@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
 const app = express();
@@ -10,7 +11,8 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 app.use(express.static('./public'));
 
-const db = require('./config/keys').mongoURI;
+// const db = require('./config/keys').mongoURI;
+const db = process.env.MONGO_URI;
 mongoose.connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true
