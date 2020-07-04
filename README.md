@@ -1,1 +1,1 @@
-A local online news web portal
+An online daily local news portal
