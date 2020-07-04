@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Headlines, Latest News, Economy, Politics and More | CityVOICE
+        link(rel="icon", href="/logo.png", type="image/png")
+        link(rel="stylesheet", href="/style.css")
+        script(defer, src="https://code.jquery.com/jquery-3.5.1.js")
+        script(defer, src="/script.js")
+    body
+        header
+            .header-logo
+                h1
+                    a(href="/")
+                        span.city CITY
+                        span.voice VOICE
+                p#todayDate
+        .container
+            nav
+                ul
+                    li#active-link
+                        a(href="/") Home
+                    li
+                        a(href="/latest/") Latest
+                    li
+                        a(href="/economy/") Economy
+                    li
+                        a(href="/politics/") Politics
+                    li
+                        a(href="/sports/") Sports
+                    li
+                        a(href="/entertainment/") Entertainment
+                    li
+                        a(href="/editorial/") Editorial
+            block content
+            section
+        footer
+            p Copyright &copy; CityVoice 2020
