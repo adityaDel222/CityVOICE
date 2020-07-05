@@ -1,1 +1,1 @@
-An online daily local news portal
+An online daily local news portal developed using Node.js, Express.js and MongoDB.

@@ -11,11 +11,14 @@ html(lang="en")
         script(defer, src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js")
         script(defer, src="/script.js")
     body
+        a.enter-admin(href="/admin") Admin
         span.show-menu-icon.fas.fa-bars
         span.hide-menu-icon.fas.fa-times
         .hidden-menu
             ul
-                li#active-link
+                li
+                    a(href="/admin") Admin
+                li
                     a(href="/") Home
                 li
                     a(href="/latest/") Latest
@@ -39,21 +42,65 @@ html(lang="en")
         .container
             nav
                 ul
-                    li#active-link
-                        a(href="/") Home
-                    li
-                        a(href="/latest/") Latest
-                    li
-                        a(href="/economy/") Economy
-                    li
-                        a(href="/politics/") Politics
-                    li
-                        a(href="/sports/") Sports
-                    li
-                        a(href="/entertainment/") Entertainment
-                    li
-                        a(href="/editorial/") Editorial
+                    if heading === 'Headlines'
+                        li#active-link
+                            a(href="/") Home
+                    else
+                        li
+                            a(href="/") Home
+                    if heading === 'Latest'
+                        li#active-link
+                            a(href="/latest") Latest
+                    else
+                        li
+                            a(href="/latest") Latest
+                    if heading === 'Economy'
+                        li#active-link
+                            a(href="/economy") Economy
+                    else
+                        li
+                            a(href="/economy") Economy
+                    if heading === 'Politics'
+                        li#active-link
+                            a(href="/politics") Politics
+                    else
+                        li
+                            a(href="/politics") Politics
+                    if heading === 'Sports'
+                        li#active-link
+                            a(href="/sports") Sports
+                    else
+                        li
+                            a(href="/sports") Sports
+                    if heading === 'Entertainment'
+                        li#active-link
+                            a(href="/entertainment") Entertainment
+                    else
+                        li
+                            a(href="/entertainment") Entertainment
+                    if heading === 'Editorial'
+                        li#active-link
+                            a(href="/editorial") Editorial
+                    else
+                        li
+                            a(href="/editorial") Editorial
             block content
             section
         footer
-            p Copyright &copy; CityVoice 2020
+            h3 Follow us on
+            div
+                a(href="")
+                    span.fab.fa-facebook-square
+                a(href="")
+                    span.fab.fa-twitter-square
+                a(href="")
+                    span.fab.fa-linkedin
+                a(href="")
+                    span.fab.fa-instagram-square
+            h3 Write to us at
+            a.mail(href="")
+                span.fas.fa-envelope-open
+            p
+                span Designed and developed by
+                span
+                    a(href="https://aditya-raj.netlify.app/", target="_blank") Aditya Raj

@@ -21,6 +21,16 @@
     a:hover {
         color: #000;
     }
+    .enter-admin {
+        position: fixed;
+        top: 20px;
+        right: 0;
+        z-index: 3;
+        box-shadow: 1px 1px 1px 1px #ddd;
+        padding: 5px 10px;
+        width: 100px;
+        color: #777;
+    }
     .show-menu-icon, .hide-menu-icon, .hidden-menu {
         display: none;
     }
@@ -156,12 +166,44 @@
         min-height: 750px;
     }
     footer {
+        position: relative;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        min-height: 300px;
+        min-height: 85vh;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 20px;
+        color: #fff;
+        background-color: #222;
+    }
+    footer div {
+        width: 25%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    footer div a {
+        font-size: 50px;
+    }
+    footer > a {
+        font-size: 30px;
+    }
+    footer p {
+        font-size: 15px;
+        color: #aaa;
+        position: absolute;
+        bottom: 0;
+        z-index: 3;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    footer a {
+        color: #777;
+        margin-left: 5px;
+        font-style: italic;
+    }
+    footer a:hover {
         color: #ddd;
-        background-color: #333;
     }
 
     /* Article */

@@ -5,6 +5,21 @@
         justify-content: center;
         align-items: center;
     }
+    #logout {
+        position: fixed;
+        top: 30px;
+        right: 50px;
+        z-index: 3;
+        border-radius: 50%;
+        font-size: 25px;
+        padding: 10px 15px;
+        color: #555;
+        box-shadow: 1px 1px 1px 1px #ddd;
+    }
+    #logout:hover {
+        color: #000;
+        box-shadow: none;
+    }
     .container h3 {
         border-bottom: 1.5px solid #333;
         padding-bottom: 10px;
@@ -20,6 +35,9 @@
         width: 100%;
         margin: 5px 0;
         padding: 10px;
+    }
+    input[name="username"], input[name="password"] {
+        width: 50%;
     }
     input[name="title"] {
         font-size: 40px;
@@ -60,6 +78,7 @@
     input[name="submit"] {
         width: 20%;
         cursor: pointer;
+        margin: 20px 0 0 0;
     }
 }
 @media only screen and (max-width: 1000px) {
@@ -69,13 +88,23 @@
         justify-content: center;
         align-items: center;
     }
+    #logout {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 3;
+        border-radius: 50%;
+        font-size: 20px;
+        padding: 5px 10px;
+        color: #555;
+        box-shadow: 1px 1px 1px 1px #ddd;
+    }
     .container h3 {
         border-bottom: 1.5px solid #333;
         padding-bottom: 10px;
     }
     form {
         margin: 20px 10px;
-        /* padding: 10px 10px; */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -119,9 +148,9 @@
         width: 100%;
         height: 100px;
     }
-    input[name="submit"] {
+    input[type="submit"] {
         border: 1px solid #000;
-        width: 25%;
+        width: 50%;
         cursor: pointer;
     }
 }

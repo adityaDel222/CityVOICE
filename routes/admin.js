@@ -1,11 +1,72 @@
 const express = require('express');
+const admin = require('../models/admin');
 const articles = require('../models/articles');
 const router = express.Router();
 const bodyParser = require('body-parser');
+const session = require('client-sessions');
 router.use(bodyParser.urlencoded({ extended: true }));
 
+router.use(session({
+    cookieName: 'session',
+    secret: 'random_string_goes_here',
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000,
+    httpOnly: true,
+    secure: true,
+    ephemeral: true
+}));
+router.use((req, res, next) => {
+    if(req.session && req.session.user) {
+        admin.findOne({ username: req.session.user.username }, (err, user) => {
+            if(user) {
+                req.user = user;
+                delete req.user.password;
+                req.session.user = user;
+                res.locals.user = user;
+            }
+            next();
+        });
+    } else {
+        next();
+    }
+});
 router.get('/', (req, res) => {
-    res.render('admin');
+    if(req.user) {
+        res.redirect('/admin/addarticle');
+    } else {
+        res.render('adminlogin');
+    }
+});
+router.get('/addarticle', (req, res) => {
+    if(!req.user) {
+        res.redirect('/admin');
+    } else {
+        res.render('admin');
+    }
+});
+router.get('/logout', (req, res) => {
+    req.session.reset();
+    res.redirect('/admin');
+});
+router.post('/', (req, res) => {
+    const newAdmin = new admin({
+        username: req.body.username,
+        password: req.body.password
+    });
+    admin.findOne({ username: newAdmin.username }, (err, user) => {
+        if(!user) {
+            res.redirect('/admin');
+            console.log('Invalid username or password');
+        } else {
+            if(req.body.password === user.password) {
+                req.session.user = user;
+                res.redirect('/admin/addarticle');
+            } else {
+                res.redirect('/admin');
+                console.log('Invalid username or password');
+            }
+        }
+    });
 });
 router.post('/submit', (req, res) => {
     console.log('Title: ' + req.body.title);
@@ -45,7 +106,7 @@ router.post('/submit', (req, res) => {
             console.log('Articles saved to database');
         }
     })
-    res.redirect('/admin');
+    res.redirect('/');
 });
 
 module.exports = router;
