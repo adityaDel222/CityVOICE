@@ -39,7 +39,7 @@ router.get('/latest/', (req, res) => {
     });
 });
 router.get('/economy/', (req, res) => {
-    articles.find({ category: "economy" }, (err, articles) => {
+    articles.find({ category: "Economy" }, (err, articles) => {
         if(err) {
             console.error(err);
         } else {
@@ -57,7 +57,7 @@ router.get('/economy/', (req, res) => {
     });
 });
 router.get('/politics/', (req, res) => {
-    articles.find({ category: "politics" }, (err, articles) => {
+    articles.find({ category: "Politics" }, (err, articles) => {
         if(err) {
             console.error(err);
         } else {
@@ -75,7 +75,7 @@ router.get('/politics/', (req, res) => {
     });
 });
 router.get('/sports/', (req, res) => {
-    articles.find({ category: "sports" }, (err, articles) => {
+    articles.find({ category: "Sports" }, (err, articles) => {
         if(err) {
             console.error(err);
         } else {
@@ -93,7 +93,7 @@ router.get('/sports/', (req, res) => {
     });
 });
 router.get('/entertainment/', (req, res) => {
-    articles.find({ category: "entertainment" }, (err, articles) => {
+    articles.find({ category: "Entertainment" }, (err, articles) => {
         if(err) {
             console.error(err);
         } else {
@@ -111,7 +111,7 @@ router.get('/entertainment/', (req, res) => {
     });
 });
 router.get('/editorial/', (req, res) => {
-    articles.find({ category: "editorial" }, (err, articles) => {
+    articles.find({ category: "Editorial" }, (err, articles) => {
         if(err) {
             console.error(err);
         } else {

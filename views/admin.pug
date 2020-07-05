@@ -6,6 +6,7 @@ html(lang="en")
         title Admin | CityVOICE
         link(rel="icon", href="/logo.png", type="image/png")
         link(rel="stylesheet", href="/style.css")
+        link(rel="stylesheet", href="/styleM.css")
         link(rel="stylesheet", href="/admin.css")
         script(defer, src="https://code.jquery.com/jquery-3.5.1.js")
         script(defer, src="/script.js")
@@ -19,7 +20,6 @@ html(lang="en")
                 p#todayDate
         .container
             h3 Add Article
-            hr
             form(action="/admin/submit", method="POST")
                 input(type="text", name="title", placeholder="Title", required)
                 input(type="subtitle", name="subtitle", placeholder="Subtitle", required)
