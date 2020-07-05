@@ -8,8 +8,27 @@ html(lang="en")
         link(rel="stylesheet", href="/style.css")
         link(rel="stylesheet", href="/styleM.css")
         script(defer, src="https://code.jquery.com/jquery-3.5.1.js")
+        script(defer, src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js")
         script(defer, src="/script.js")
     body
+        span.show-menu-icon.fas.fa-bars
+        span.hide-menu-icon.fas.fa-times
+        .hidden-menu
+            ul
+                li#active-link
+                    a(href="/") Home
+                li
+                    a(href="/latest/") Latest
+                li
+                    a(href="/economy/") Economy
+                li
+                    a(href="/politics/") Politics
+                li
+                    a(href="/sports/") Sports
+                li
+                    a(href="/entertainment/") Entertainment
+                li
+                    a(href="/editorial/") Editorial
         header
             .header-logo
                 h1

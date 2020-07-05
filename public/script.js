@@ -20,3 +20,21 @@ $(document).ready(() => {
         }
     });
 });
+$(document).ready(() => {
+    $('.hidden-menu').css('display', 'flex');
+    $('.hidden-menu').hide();
+    $('.show-menu-icon').click(() => {
+        $('.hidden-menu').animate({
+            width: 'toggle'
+        });
+        $('.show-menu-icon').hide(500);
+        $('.hide-menu-icon').show(500);
+    });
+    $('.hide-menu-icon').click(() => {
+        $('.hidden-menu').animate({
+            width: 'toggle'
+        });
+        $('.hide-menu-icon').hide(500);
+        $('.show-menu-icon').show(500);
+    });
+});

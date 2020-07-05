@@ -21,6 +21,9 @@
     a:hover {
         color: #000;
     }
+    .show-menu-icon, .hide-menu-icon, .hidden-menu {
+        display: none;
+    }
     header {
         display: flex;
         justify-content: center;
