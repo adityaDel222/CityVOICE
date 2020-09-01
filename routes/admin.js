@@ -44,6 +44,40 @@ router.get('/addarticle', (req, res) => {
         res.render('admin');
     }
 });
+
+router.get('/deletearticle', (req, res) => {
+    if(!req.user) {
+        res.redirect('/admin');
+    } else {
+        articles.find({}, (err, articles) => {
+            if(err) {
+                console.log(err);
+            } else {
+                articles.sort((a, b) => {
+                    const monthsList = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12};
+                    const aDateTime = new Date(a.date.yearDB, monthsList[a.date.monthDB] - 1, a.date.dayDB, a.time.hourDB, a.time.minuteDB);
+                    const bDateTime = new Date(b.date.yearDB, monthsList[b.date.monthDB] - 1, b.date.dayDB, b.time.hourDB, b.time.minuteDB);
+                    return aDateTime < bDateTime ? 1 : -1;
+                });
+                res.render('admindelete', {
+                    articles: articles
+                });
+            }
+        });
+    }
+});
+
+router.get('/deletearticle/:id', (req, res) => {
+    articles.findByIdAndDelete(req.params.id, (err, res) => {
+        if(err) {
+            console.error(err);
+        } else {
+            console.log(res);
+        }
+    });
+    res.redirect('/admin/deletearticle');
+});
+
 router.get('/logout', (req, res) => {
     req.session.reset();
     res.redirect('/admin');
@@ -72,7 +106,10 @@ router.post('/submit', (req, res) => {
     console.log('Title: ' + req.body.title);
     console.log('Subtitle: ' + req.body.subtitle);
     console.log('Category: ' + req.body.category);
+    const articleURL = req.body.title.replace(" ", "-");
+    console.log('URL: ' + articleURL);
     const newArticle = new articles({
+        url: articleURL,
         title: req.body.title,
         date: {
             dayDB: req.body.dayselect,

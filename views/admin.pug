@@ -2,7 +2,10 @@ extends adminlayout
 block content
     a(href="/admin/logout", id="logout", title="Logout")
         span.fas.fa-sign-out-alt
-    h3 Add Article
+    .top-links
+        h3(style="border-bottom: 1.5px solid #333;") Add Article
+        h3
+            a(href="/admin/deletearticle") Delete Article
     form(action="/admin/submit", method="POST")
         input(type="text", name="title", placeholder="Title", required, autofocus)
         input(type="subtitle", name="subtitle", placeholder="Subtitle", required)

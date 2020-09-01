@@ -9,10 +9,10 @@ block content
                 span
                     a(href="/" + article.category)= article.category
                 span= ' > ' + article.title
+            h1= article.title
             .article-illustration
                 img(src=article.image.url)
                 p= article.image.caption
-            h1= article.title
             h3= article.subtitle
             - let DT = article.date.dayDB + ' ' + article.date.monthDB + ' ' + article.date.yearDB
             if article.time.hourDB < 12
