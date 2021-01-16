@@ -2,7 +2,7 @@ $(document).ready(() => {
     let d = new Date();
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const months = ['Jan', 'Feb', 'Mar', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    let dateOutput = days[d.getDay()] + ', ' + d.getDate() + ' ' + months[d.getMonth() - 1] + ' ' + d.getFullYear();
+    let dateOutput = days[d.getDay()] + ', ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
     document.getElementById('todayDate').innerHTML = dateOutput;
 });
 $(document).ready(() => {
